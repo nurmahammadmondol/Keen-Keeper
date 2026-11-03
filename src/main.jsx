@@ -1,30 +1,39 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import About from './Components/About/About';
-import { createBrowserRouter, RouterProvider } from 'react-router';
-import Layout from './Components/Layout/Layout';
-import Home from './Components/Home/Home';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import About from "./Components/About/About";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import Layout from "./Components/Layout/Layout";
+import Home from "./Components/Home/Home";
+import FriendsContext from "./Components/Context/FriendsContext";
+import Details from "./Components/Details/Details";
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: Layout,
-    children:[
+    children: [
       {
         index: true,
-        Component: Home
+        Component: Home,
       },
       {
-        path: 'about',
+        path: "about",
         Component: About,
+      },
+      {
+        path: 'details/:id',
+        Component: Details
+
       }
-    ]
+    ],
   },
 ]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <FriendsContext>
+      <RouterProvider router={router} />
+    </FriendsContext>
   </StrictMode>,
-)
+);
