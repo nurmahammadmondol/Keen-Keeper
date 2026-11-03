@@ -8,7 +8,7 @@ const Layout = () => {
            <Navbar></Navbar>
 
            <div className="bg-gray-50">
-            <main className="w-11/12 md:w-10/12 mx-auto py-10 h-svh border ">
+            <main className="w-11/12 md:w-10/12 mx-auto py-10  ">
             <Outlet></Outlet>
            </main>
            </div>

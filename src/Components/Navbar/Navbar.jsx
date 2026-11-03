@@ -38,7 +38,7 @@ const Navbar = () => {
             {manu}
           </ul>
         </div>
-        <img src="" alt="" />
+        
         <a className="btn btn-ghost text-2xl font-bold">Keen <span className="font-normal text-[#244D3F]">Keeper</span></a>
       </div>
       
