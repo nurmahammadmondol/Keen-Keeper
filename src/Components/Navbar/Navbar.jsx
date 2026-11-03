@@ -1,9 +1,11 @@
+import { ChartLine, Clock, House } from "lucide-react";
+
 const Navbar = () => {
   const manu = (
     <>
-      <a className="btn">Home</a>
-      <a className="btn">Time Line</a>
-      <a className="btn">Stutes</a>
+      <a className="btn font-bold"><House /> Home</a>
+      <a className="btn  font-bold"><Clock /> Time Line</a>
+      <a className="btn  font-bold"><ChartLine />Stats</a>
     </>
   );
 
@@ -37,7 +39,7 @@ const Navbar = () => {
           </ul>
         </div>
         <img src="" alt="" />
-        <a className="btn btn-ghost text-xl">Keen Keeper</a>
+        <a className="btn btn-ghost text-2xl font-bold">Keen <span className="font-normal text-[#244D3F]">Keeper</span></a>
       </div>
       
       <div className="navbar-end hidden md:flex items-center gap-2">{manu}</div>

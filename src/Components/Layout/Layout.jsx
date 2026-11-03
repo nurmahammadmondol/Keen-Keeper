@@ -7,9 +7,11 @@ const Layout = () => {
         <div>
            <Navbar></Navbar>
 
-           <main className="w-11/12 md:w-10/12 mx-auto my-10 h-svh">
+           <div className="bg-gray-50">
+            <main className="w-11/12 md:w-10/12 mx-auto py-10 h-svh border ">
             <Outlet></Outlet>
            </main>
+           </div>
 
            <Footer></Footer>
 
