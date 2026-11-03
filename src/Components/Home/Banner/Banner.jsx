@@ -3,8 +3,8 @@ import { Plus } from "lucide-react";
 const Banner = () => {
   return (
     <div>
-      <div className=" text-center space-y-3">
-        <h2 className="text-3xl font-bold">
+      <div className=" text-center space-y-3 md:space-y-5">
+        <h2 className="text-3xl md:text-5xl font-bold">
           Friends to Keep close in your life
         </h2>
         <p className="text-xs text-gray-400">

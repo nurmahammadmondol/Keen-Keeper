@@ -1,11 +1,12 @@
 import { ChartLine, Clock, House } from "lucide-react";
+import { NavLink } from "react-router";
 
 const Navbar = () => {
   const manu = (
     <>
-      <a className="btn font-bold"><House /> Home</a>
-      <a className="btn  font-bold"><Clock /> Time Line</a>
-      <a className="btn  font-bold"><ChartLine />Stats</a>
+      <NavLink to={'/'} className="btn font-bold"><House /> Home</NavLink>
+      <NavLink to={'/timeline'} className="btn  font-bold"><Clock /> Time Line</NavLink>
+      <NavLink to={'/stats'} className="btn  font-bold"><ChartLine />Stats</NavLink>
     </>
   );
 

@@ -1,12 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import About from "./Components/About/About";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Layout from "./Components/Layout/Layout";
 import Home from "./Components/Home/Home";
 import FriendsContext from "./Components/Context/FriendsContext";
 import Details from "./Components/Details/Details";
+import Timeline from "./Components/TimeLine/Timeline";
+import Stats from "./Components/Statas/Stats";
 
 const router = createBrowserRouter([
   {
@@ -18,8 +19,12 @@ const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path: "about",
-        Component: About,
+        path: "timeline",
+        Component: Timeline,
+      },
+      {
+        path: "stats",
+        Component: Stats,
       },
       {
         path: 'details/:id',
