@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <Suspense fallback={<h1>Looooooding ..............</h1>}>
+      <Suspense fallback={<h1 className="text-center my-20"><span className="loading loading-bars loading-xl"></span></h1>}>
         <Friends friendsPromise={friendsPromise}></Friends>
       </Suspense>
     </div>
