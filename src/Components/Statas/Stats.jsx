@@ -1,18 +1,15 @@
+import { useContext } from "react";
 import FriendshipAnalytics from "./FriendshipAnalytics";
+import { DataContext } from "../Context/FriendsContext";
 
 const Stats = () => {
-  const interactions = [
-    { friend: "Rafi", type: "Text" },
-    { friend: "Rafi", type: "Call" },
-    { friend: "Nabila", type: "Video" },
-    { friend: "Sakib", type: "Call" },
-    { friend: "Tania", type: "Text" },
-  ];
+  const {checkIn}=useContext(DataContext)
+  
 
   return (
     <div>
     
-      <FriendshipAnalytics interactions={interactions}></FriendshipAnalytics>
+      <FriendshipAnalytics interactions={checkIn}></FriendshipAnalytics>
     </div>
   );
 };

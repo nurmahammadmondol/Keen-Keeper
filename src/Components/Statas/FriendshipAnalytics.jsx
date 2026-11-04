@@ -11,7 +11,7 @@ const TYPES = [
 
 export default function FriendshipAnalytics({ interactions = [] }) {
   const counts = TYPES.map(
-    (t) => interactions.filter((i) => i.type === t.key).length
+    (t) => interactions.filter((i) => i.type === t.key).length,
   );
 
   const data = {
@@ -22,7 +22,7 @@ export default function FriendshipAnalytics({ interactions = [] }) {
         backgroundColor: TYPES.map((t) => t.color),
         borderWidth: 0,
         borderRadius: 12, // rounded segment
-        spacing: 6,       // segment er majhe fanka
+        spacing: 6, // segment er majhe fanka
       },
     ],
   };
@@ -45,7 +45,14 @@ export default function FriendshipAnalytics({ interactions = [] }) {
 
   return (
     <div style={{ maxWidth: 820, margin: "0 auto", padding: 20 }}>
-      <h1 style={{ fontSize: "2.2rem", fontWeight: 800, color: "#1e293b" , marginBottom: '10px'}}>
+      <h1
+        style={{
+          fontSize: "2.2rem",
+          fontWeight: 800,
+          color: "#1e293b",
+          marginBottom: "10px",
+        }}
+      >
         Friendship Analytics
       </h1>
 
@@ -60,10 +67,15 @@ export default function FriendshipAnalytics({ interactions = [] }) {
         <h2 style={{ fontSize: "1rem", fontWeight: 500, margin: "0 0 12px" }}>
           By Interaction Type
         </h2>
-
-        <div style={{ width: 280, margin: "0 auto" }}>
-          <Doughnut data={data} options={options} />
-        </div>
+        {interactions.length === 0 ? (
+          <p style={{ textAlign: "center", color: "#94a3b8" }}>
+            No interactions yet
+          </p>
+        ) : (
+          <div style={{ width: 280, margin: "0 auto" }}>
+            <Doughnut data={data} options={options} />
+          </div>
+        )}
       </div>
     </div>
   );
