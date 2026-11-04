@@ -1,13 +1,15 @@
+import "../../index.css"
+
 import { ChartLine, Clock, House } from "lucide-react";
 import { NavLink } from "react-router";
 
 const Navbar = () => {
   const manu = (
-    <>
-      <NavLink to={'/'} className="btn font-bold"><House /> Home</NavLink>
-      <NavLink to={'/timeline'} className="btn  font-bold"><Clock /> Time Line</NavLink>
-      <NavLink to={'/stats'} className="btn  font-bold"><ChartLine />Stats</NavLink>
-    </>
+    <nav className="border rounded-2xl border-gray-200 ">
+      <NavLink to={'/'} className="text-[#244D3F] btn font-bold border-none rounded-none rounded-l-2xl"><House /> Home</NavLink>
+      <NavLink to={'/timeline'} className="text-[#244D3F] btn  font-bold border-none  rounded-none"><Clock /> Time Line</NavLink>
+      <NavLink to={'/stats'} className="text-[#244D3F] btn  font-bold border-none  rounded-none rounded-r-2xl"><ChartLine />Stats</NavLink>
+    </nav>
   );
 
   return (
