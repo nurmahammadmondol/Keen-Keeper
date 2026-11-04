@@ -4,14 +4,14 @@ export const DataContext = createContext(null);
 
 const FriendsContext = ({ children }) => {
 
-   
+//    const []
 
-    const handleDetails=(id)=>{
-        console.log('aaaaaaaaaaaaaaaaaaaaaa',id)
+    const handleQuickCheckIn=(id, type)=>{
+        console.log(id, type)
     }
 
     return (
-        <DataContext.Provider value={{handleDetails}}>
+        <DataContext.Provider value={{handleQuickCheckIn}}>
             {children}
         </DataContext.Provider>
     );

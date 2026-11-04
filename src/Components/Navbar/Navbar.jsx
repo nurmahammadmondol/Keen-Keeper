@@ -42,7 +42,7 @@ const Navbar = () => {
           </ul>
         </div>
         
-        <a className="btn btn-ghost text-2xl font-bold">Keen <span className="font-normal text-[#244D3F]">Keeper</span></a>
+        <a className="btn btn-ghost text-2xl md:text-4xl font-bold  text-[#244D3F]">Keen <span className="font-normal">Keeper</span></a>
       </div>
       
       <div className="navbar-end hidden md:flex items-center gap-2">{manu}</div>
