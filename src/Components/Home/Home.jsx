@@ -3,7 +3,7 @@ import Banner from "./Banner/Banner";
 import Friends from "./Friends/Friends";
 
 const friendsPromise = fetch("/friends.json").then((res) => res.json());
-console.log(friendsPromise)
+// console.log(friendsPromise)
 
 const Home = () => {
   return (

@@ -1,37 +1,43 @@
-import { useMemo, useState } from "react";
-
-// ===== Ekhane data array — eta change korlei UI change hobe =====
-const events = [
-  { id: 1, type: "Text", person: "Sarah Chen", date: "2026-03-28" },
-  { id: 2, type: "Video", person: "Aisha Patel", date: "2026-03-23" },
-  { id: 3, type: "Call", person: "Marcus Johnson", date: "2026-03-19" },
-  { id: 4, type: "Text", person: "Olivia Martinez", date: "2026-03-13" },
-];
+import { useContext, useMemo, useState } from "react";
+import { DataContext } from "../Context/FriendsContext";
 
 const ICONS = { Text: "💬", Call: "📞", Video: "📹" };
 
-const formatDate = (d) =>
-  new Date(`${d}T00:00:00`).toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
+export default function Timeline() {
+  const { checkIn } = useContext(DataContext);
 
-export default function Timeline({ items = events }) {
   const [filter, setFilter] = useState("");
 
-  const types = useMemo(() => [...new Set(items.map((e) => e.type))], [items]);
-
-  const rows = useMemo(
-    () =>
-      items
-        .filter((e) => !filter || e.type === filter)
-        .sort((a, b) => b.date.localeCompare(a.date)),
-    [items, filter],
+  const types = useMemo(
+    () => [...new Set(checkIn.map((e) => e.type))],
+    [checkIn],
   );
 
+  const rows = useMemo(
+  () =>
+    checkIn
+      .filter((e) => !filter || e.type === filter)
+      .sort((a, b) => new Date(b.date) - new Date(a.date)),
+  [checkIn, filter],
+);
+
+  const formatDateTime = (value) => {
+    if (!value) return "";
+    const d = new Date(value);
+    if (isNaN(d)) return value;
+    return d.toLocaleString("en-GB", {
+      timeZone: "Asia/Dhaka",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    });
+  };
+
   return (
-    <section className=" px-5 pb-20 pt-14">
+    <section className="px-5 pb-20 pt-14">
       <div className="flex items-center justify-between">
         <h1 className="mb-6 text-[34px] font-extrabold tracking-tight text-slate-800 dark:text-slate-100">
           Timeline
@@ -67,11 +73,11 @@ export default function Timeline({ items = events }) {
                   {e.type}
                 </span>
                 <span className="ml-1 text-sm text-slate-500 dark:text-slate-400">
-                  with {e.person}
+                  with {e.name}
                 </span>
               </div>
               <div className="mt-0.5 text-[13px] font-medium text-slate-600 dark:text-slate-300">
-                {formatDate(e.date)}
+                {formatDateTime(e.date)}
               </div>
             </div>
           </li>

@@ -1,11 +1,19 @@
 import { Link, useParams } from "react-router";
 import { useContext, useEffect, useState } from "react";
-import { Archive, ArrowLeft, BellRing, MessageSquareMore, PhoneCall, Trash, Video } from "lucide-react";
+import {
+  Archive,
+  ArrowLeft,
+  BellRing,
+  MessageSquareMore,
+  PhoneCall,
+  Trash,
+  Video,
+} from "lucide-react";
 import { DataContext } from "../Context/FriendsContext";
 
 const Details = () => {
   const { id } = useParams();
-  const {handleQuickCheckIn}=useContext(DataContext)
+  const { handleQuickCheckIn } = useContext(DataContext);
 
   const [friend, setFriend] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -106,15 +114,49 @@ const Details = () => {
           <div className="p-4 md:p-8  bg-white border border-gray-100 rounded-xl">
             <h3 className="text-xl">Quick Check In</h3>
             <div className="grid grid-cols-3 gap-5 mt-4">
-                <button onClick={()=>{handleQuickCheckIn({...friend, type:'Call'})}} className="btn p-5 md:p-8"><PhoneCall />Call</button>
-                <button onClick={()=>{handleQuickCheckIn({...friend, type:'Video'})}} className="btn p-5 md:p-8"><Video /> Video</button>
-                <button onClick={()=>{handleQuickCheckIn({...friend, type:'Text'})}} className="btn p-5 md:p-8"><MessageSquareMore /> Text</button>
+              <button
+                onClick={() =>
+                  handleQuickCheckIn({
+                    ...friend,
+                    type: "Call",
+                    date: new Date().toISOString(),
+                  })
+                }
+                className="btn p-5 md:p-8"
+              >
+                <PhoneCall /> Call
+              </button>
+              <button
+                onClick={() =>
+                  handleQuickCheckIn({
+                    ...friend,
+                    type: "Video",
+                    date: new Date().toISOString(),
+                  })
+                }
+                className="btn p-5 md:p-8"
+              >
+                <Video /> Video
+              </button>
+
+              <button
+                onClick={() =>
+                  handleQuickCheckIn({
+                    ...friend,
+                    type: "Text",
+                    date: new Date().toISOString(),
+                  })
+                }
+                className="btn p-5 md:p-8"
+              >
+                <MessageSquareMore /> Text
+              </button>
             </div>
           </div>
         </div>
       </div>
       <Link className="btn mt-10 w-full" to="/">
-      <ArrowLeft />
+        <ArrowLeft />
         Back
       </Link>
     </>
