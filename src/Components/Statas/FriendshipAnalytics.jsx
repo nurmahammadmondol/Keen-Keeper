@@ -5,8 +5,8 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const TYPES = [
   { key: "Text", color: "#7c3aed" },
-  { key: "Call", color: "#224d3f" },
-  { key: "Video", color: "#36a364" },
+  { key: "Call", color: "#36a364" },
+  { key: "Video", color: "#224d3f" },
 ];
 
 export default function FriendshipAnalytics({ interactions = [] }) {

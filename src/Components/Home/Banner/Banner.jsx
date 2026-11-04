@@ -20,12 +20,12 @@ const Banner = () => {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-10">
         {/* 1st cart  */}
         <div className="text-center p-4 md:p-8 lg:p-10 bg-white border border-gray-200 rounded-2xl">
-          <p className="text-[#244D3F] text-3xl font-bold">10</p>
+          <p className="text-[#244D3F] text-3xl font-bold">23</p>
           <h6 className="text-gray-400 ">Total Friends</h6>
         </div>
         {/* 2nd cart  */}
         <div className="text-center p-4 md:p-8 lg:p-10 bg-white border border-gray-200 rounded-2xl">
-          <p className="text-[#244D3F] text-3xl font-bold">3</p>
+          <p className="text-[#244D3F] text-3xl font-bold">10</p>
           <h6 className="text-gray-400 ">On Track</h6>
         </div>
         {/* 1st cart  */}

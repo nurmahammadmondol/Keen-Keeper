@@ -116,37 +116,21 @@ const Details = () => {
             <div className="grid grid-cols-3 gap-5 mt-4">
               <button
                 onClick={() =>
-                  handleQuickCheckIn({
-                    ...friend,
-                    type: "Call",
-                    date: new Date().toISOString(),
-                  })
+                  handleQuickCheckIn(friend, 'Call')
                 }
                 className="btn p-5 md:p-8"
               >
                 <PhoneCall /> Call
               </button>
               <button
-                onClick={() =>
-                  handleQuickCheckIn({
-                    ...friend,
-                    type: "Video",
-                    date: new Date().toISOString(),
-                  })
-                }
+                onClick={() => handleQuickCheckIn(friend, 'Video')}
                 className="btn p-5 md:p-8"
               >
                 <Video /> Video
               </button>
 
               <button
-                onClick={() =>
-                  handleQuickCheckIn({
-                    ...friend,
-                    type: "Text",
-                    date: new Date().toISOString(),
-                  })
-                }
+                onClick={() => handleQuickCheckIn(friend, 'Text')}
                 className="btn p-5 md:p-8"
               >
                 <MessageSquareMore /> Text

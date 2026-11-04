@@ -14,12 +14,13 @@ export default function Timeline() {
   );
 
   const rows = useMemo(
-  () =>
-    checkIn
-      .filter((e) => !filter || e.type === filter)
-      .sort((a, b) => new Date(b.date) - new Date(a.date)),
-  [checkIn, filter],
-);
+    () =>
+      checkIn
+        .filter((e) => !filter || e.type === filter)
+        // বদলানো: date -> callDate
+        .sort((a, b) => new Date(b.callDate) - new Date(a.callDate)),
+    [checkIn, filter],
+  );
 
   const formatDateTime = (value) => {
     if (!value) return "";
@@ -61,7 +62,8 @@ export default function Timeline() {
       <ul className="flex flex-col gap-[18px]">
         {rows.map((e) => (
           <li
-            key={e.id}
+            // বদলানো: id + type মিলিয়ে unique key
+            key={`${e.id}-${e.type}`}
             className="flex items-center gap-3.5 rounded-lg border border-slate-200 bg-white px-3 py-3.5 dark:border-slate-700 dark:bg-slate-800"
           >
             <span className="w-8 text-center text-[28px] leading-none">
@@ -77,7 +79,8 @@ export default function Timeline() {
                 </span>
               </div>
               <div className="mt-0.5 text-[13px] font-medium text-slate-600 dark:text-slate-300">
-                {formatDateTime(e.date)}
+                {/* বদলানো: date -> callDate */}
+                {formatDateTime(e.callDate)}
               </div>
             </div>
           </li>
